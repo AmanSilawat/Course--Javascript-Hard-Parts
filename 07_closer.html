@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<script>
+// ========= example 1 ==========
+function createFunction() {
+	function multiplyBy2(num) {
+		return num*2;
+	}
+	return multiplyBy2;
+}
+
+const generatedFunc = createFunction();
+const result = generatedFunc(3);
+
+
+// ========= example 2 ==========
+function counterFunc() {
+	let counter = 0;
+	let markCounter = 5; // this varibale not store in backpack or never use the function or no reference made to markcounter returned function. (WHAT'S CALLED MEMORY LEACK)
+	function increase() {
+		counter++;
+	}
+	return increase; //near this all data store and linked on this return function
+}
+let autoIncrease = counterFunc();
+autoIncrease();
+autoIncrease();
+
+console.log(autoIncrease.prototype) // confirm where sotre closer data
+//goto: constructor->[[scopes]]->Closer
+
+
+
+// ========= example 3 ==========
+function outer() {
+	let counter = 0;  // bound into local variable environment
+	function incrementCounter() {
+		return counter++;
+	}
+	return incrementCounter; // atteched with returned function and store local variable enviroment on hide scope
+}
+
+let otherFunction = outer(); //both are uniq backpack (C.O.V.E / P.L.S.R.D.)
+otherFunction();
+otherFunction();
+
+let anotherFunction = outer(); //both are uniq backpack (C.O.V.E / P.L.S.R.D.)
+anotherFunction();
+anotherFunction();
+
+
+
+</script>

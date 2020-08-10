@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<script>
+function multiplyByTwo(array, callback) { //higher order function
+	const resArray = [];
+	for (let i = 0; i < array.length; i++) {
+		resArray.push( callback( array[i] ) );
+	}
+	return resArray;
+}
+function instruction(input) { //callback function
+  return input / 2;
+}
+multiplyByTwo([1, 2, 3], instruction);
+
+</script>

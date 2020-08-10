@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<script>
+
+// =========== ARROW FUNCTION =============
+function arrowFun(input) { return input*2; }
+
+//arrow function
+const arrowFun = (input) => { return input*2;}
+
+const arrowFun = (input) => input*2;
+
+const arrowFun = input => input*2;
+
+const output = arrowFun(3);
+
+
+
+// ========= HIGHER ORDER FUNCTION AND CALLBACK ===========
+function multiplyByTwo(array, callback) { //higher order function
+	const resArray = [];
+	for (let i = 0; i < array.length; i++) {
+		resArray.push( callback( array[i] ) );
+	}
+	return resArray;
+}
+
+multiplyByTwo([1, 2, 3], input => input*2);
+
+
+
+// ========= Lexical scope ===========
+let a = 7;
+let b = 10
+
+const multiplier = () {
+	let a = 5;
+	return a * b;
+}
+
+multiplier(); // 50
+
+// Therefore, in this example, JavaScript starts with a search ainside the local scope - inside the function multiplier. It finds the value immediately and goes to b. It is impossible to find a value bin the local scope, so it goes to the outer area. Here it finds b- this is 10. a * bturns into 5 * 10, and then into 50.
+
+// This whole piece of code could be inside another function, and still inside another function. And if it had bnot been found here, JavaScript would continue to search boutside the function, layer by layer.
+
+
+</script>

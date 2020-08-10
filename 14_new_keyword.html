@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new Keyword Example</title>
+</head>
+<body>
+	<h1>new Keyword Example</h1>
+	<script>
+
+		function userCreate(name, score) {
+			this.name = name;
+			this.score = score;
+		}
+
+		userCreate.prototype.increment = function() { this.score++; }
+		userCreate.prototype.login = function() { console.log("login"); }
+
+		const user1 = new userCreate("Will", 9);
+		console.log( user1 );
+		user1.increment();
+		console.log( user1 );
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>class Example</title>
+</head>
+<body>
+	<h1>class Example</h1>
+	<script>
+
+		class UserCreate {
+			constructor(name, score) {
+				this.name = name;
+				this.score = score;
+			}
+			increment() { this.score++; }
+			login() { console.log("login"); }
+		}
+
+		const user1 = new UserCreate("Will", 9);
+		console.log(user1);
+		user1.increment();
+		console.log(user1);
+
+	</script>
+</body>
+</html>

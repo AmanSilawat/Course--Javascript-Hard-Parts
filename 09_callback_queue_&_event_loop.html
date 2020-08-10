@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<script>
+debugger;
+function printHello() { console.log("Hello"); }
+function blockFor1Sec() {
+	//blocks in the javaScritp thread for 1 sec
+	//millons console log
+}
+
+setTimeout(printHello, 0); //add printHello in  callback queue
+
+blockFor1Sec();
+console.log("Me First");
+
+//all globle code is complete then run 0 millisecond printHello
+
+//all done then run "Event Loop" find any callback in "Callback Queue" and put the callback in "call stack", after "call stack" is empty than again look the "callback queue"
+
+// result in console ( console "Hello" after all global code is run.  )
+
+</script>

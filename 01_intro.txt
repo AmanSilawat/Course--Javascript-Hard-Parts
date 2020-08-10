@@ -1,0 +1,6 @@
+JavaScript the Hard Parts
+
+1. javaScript principles,
+2. Callbacks & Higher order functions
+3. Closure
+4. Class\Prototypes & Asyncronicity
