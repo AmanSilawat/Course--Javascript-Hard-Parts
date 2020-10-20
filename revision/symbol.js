@@ -32,3 +32,48 @@ for (let i in obj) {
 }
 
 
+
+//----------------------------------
+
+// JSON ignore: Symbol-keyed properties 
+console.log( JSON.stringify({[Symbol('foo')]: 'foo'}) );
+// '{}'
+
+//----------------------------------
+
+// Symbol use in object
+let object = {[sym2]: 1}
+console.log( object[sym2] );             // 1
+console.log( object[Object(sym2)] );     // still 1
+
+//----------------------------------
+
+let symbolObj = {
+    a: 10,
+    [sym2] : 20,
+    [Symbol('Apple')] : 30,
+  // Symbol('Apple')  : 20  <-- not using without square bracket
+}
+
+console.log(symbolObj.a); // 10
+console.log(symbolObj[sym2]); // 20
+console.log(symbolObj[Symbol('Apple')]); // undefined
+
+//----------------------------------
+
+// Global Symbol
+let globalSymbol = Symbol.for("name");
+
+// Local Symbol
+let localSymbol = Symbol("name");
+
+//----------------------------------
+
+// Global symbols
+let symX = Symbol.for("id"); // if the symbol did not exist, it is created
+
+// read it again
+let symY = Symbol.for("id");
+
+// the same symbol
+console.log( symX === symY ); // true
