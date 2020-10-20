@@ -16,3 +16,19 @@ console.log( symObj );   // Symbol {Symbol(foo)}
 typeof Symbol() === 'symbol' // true
 typeof Symbol('foo') === 'symbol' // true
 typeof Symbol.iterator === 'symbol' // true
+
+
+let obj = {}
+
+obj[Symbol('a')] = 'a';
+obj[Symbol.for('b')] = 'b';
+obj['c'] = 'c';
+obj.d = 'd';
+
+
+// Symbols are not enumerable in for...in iterations.
+for (let i in obj) {
+   console.log(i)  // logs "c" and "d"
+}
+
+
